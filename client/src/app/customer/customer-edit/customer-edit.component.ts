@@ -18,24 +18,21 @@ export class CustomerEditComponent implements OnInit {
               private customerService: CustomerService) {
   }
 
-  deleteCustomer(): void {
-    this.customerService.deleteCustomerById(this.customer._id).subscribe( _ => {
-      this.customerRoutingService.navigateToCustomerOverview()
-    });
-  }
-
-  submit(customer: Customer) {
-    this.customerService.updateCustomer(customer).subscribe( _ => {
-      this.customerRoutingService.navigateToCustomerOverview()
-    });
-  }
-
   ngOnInit(): void {
     this.activatedRoute.data.subscribe((data: { customer: Customer }) => {
       this.customer = data.customer;
-      console.log(
-        "customer", data
-      )
+    });
+  }
+
+  deleteCustomer(): void {
+    this.customerService.deleteCustomerById(this.customer._id).subscribe( _ => {
+      this.customerRoutingService.navigateToCustomerOverview();
+    });
+  }
+
+  submit(customer: Customer): void {
+    this.customerService.updateCustomer(customer).subscribe( _ => {
+      this.customerRoutingService.navigateToCustomerOverview();
     });
   }
 }

@@ -21,5 +21,4 @@ export class HeaderComponent {
   navigateToOverview(): void {
     this.customerRoutingService.navigateToCustomerOverview();
   }
-
 }

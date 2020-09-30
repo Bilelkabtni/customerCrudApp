@@ -14,8 +14,8 @@ export class CustomerFormComponent implements OnInit {
   customerFormGroup: FormGroup = this.formBuilder.group({
     _id: null,
     name: new FormGroup({
-      first: new FormControl(""),
-      last: new FormControl("")
+      first: new FormControl(''),
+      last: new FormControl('')
     }),
     gender: [
       null,
@@ -57,16 +57,16 @@ export class CustomerFormComponent implements OnInit {
     } = this.customer;
 
     this.customerFormGroup.patchValue({
-      _id: _id,
-      name: name,
+      _id,
+      name,
       gender: gender || 'm',
-      birthday: birthday,
-      lastContact: lastContact,
-      customerLifetimeValue: customerLifetimeValue,
+      birthday,
+      lastContact,
+      customerLifetimeValue,
     });
   }
 
-  onSubmit(customer: Customer) {
+  onSubmit(customer: Customer): void {
     if (!this.customerFormGroup.valid) {
       return;
     }

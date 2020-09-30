@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CustomerService} from "@customer/services/customer.service";
 import {Customer} from "@models/customer.model";
-import {Router} from "@angular/router";
 import {CustomerRoutingService} from "@customer/services/customer-routing.service";
 
 @Component({
@@ -13,8 +12,7 @@ export class CustomerOverviewComponent implements OnInit {
   customers: Customer[] = [];
 
   constructor(private customerService: CustomerService,
-              private customerRoutingService: CustomerRoutingService,
-              private router: Router) { }
+              private customerRoutingService: CustomerRoutingService) { }
 
   getAllCustomers(): void {
     this.customerService.getCustomers().subscribe(customers => this.customers = customers);
