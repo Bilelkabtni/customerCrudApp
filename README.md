@@ -1,4 +1,4 @@
-# customerCrudApp
+# Customer [CRUD]
 MEAN application create customer crud
 
 # Installation
