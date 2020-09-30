@@ -1,0 +1,10 @@
+<app-header [hideCreateButton]="true">
+  <h1 class="fz-1">Customer: <strong>{{customer.name.first}} {{customer.name.last}}</strong></h1>
+</app-header>
+
+<app-customer-form [customer]="customer" (submitEv)="submit($event)">
+  <div class="flex">
+    <h2>Delete customer</h2>
+    <mat-icon class="delete fz-2" (click)="deleteCustomer()">delete</mat-icon>
+  </div>
+</app-customer-form>

@@ -1,0 +1,14 @@
+<div class="header flex flex--space-between">
+  <button *ngIf="showBackButton" mat-icon-button aria-label="Create question"
+          (click)="navigateToOverview()">
+    <mat-icon>keyboard_backspace</mat-icon>
+  </button>
+  <div class="flex">
+    <ng-content></ng-content>
+  </div>
+  <button id="create" *ngIf="!hideCreateButton"
+          mat-icon-button aria-label="Create customer"
+          (click)="navigateToCreateQuestionPage()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

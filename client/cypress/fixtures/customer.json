@@ -1,0 +1,10 @@
+{
+  "name": {
+    "first": "test",
+    "last": "test"
+  },
+  "birthday": "1987-05-03",
+  "gender": "w",
+  "lastContact": "2017-07-08T13:18:56.888Z",
+  "customerLifetimeValue": 50.99
+}

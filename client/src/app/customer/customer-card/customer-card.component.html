@@ -1,0 +1,11 @@
+<div class="flex flex--column" (click)="goToEdit(customer._id)">
+  <p class="card__title flex flex--align-center">
+    <mat-icon>account_circle</mat-icon>{{customer.name.first}} {{customer.name.last}}
+  </p>
+  <div class="card__content">
+    <p class="flex flex--align-center">
+      <mat-icon>cake</mat-icon> <b>Birthday: </b>
+      <span class="p-l-1">{{customer.birthday | date}}</span>
+    </p>
+  </div>
+</div>

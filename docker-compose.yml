@@ -1,0 +1,25 @@
+version: '3'
+services:
+  client:
+    build: ./client
+    restart: always
+    ports:
+      - '4200:4200'
+    depends_on:
+      - server
+    links:
+      - server # link this service to the api service
+  server:
+    build: ./server
+    ports:
+      - '3000:3000'
+    links:
+      - mongo # link this service to the db service
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"

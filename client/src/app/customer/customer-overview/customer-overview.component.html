@@ -1,0 +1,9 @@
+<app-header [showBackButton]="false">
+  <h1>Customers List</h1>
+</app-header>
+
+<div class="cards__container">
+  <div class="card" *ngFor="let customer of customers">
+    <app-customer-card [customer]="customer"></app-customer-card>
+  </div>
+</div>

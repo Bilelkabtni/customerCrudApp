@@ -1,0 +1,74 @@
+<ng-content></ng-content>
+
+<form (ngSubmit)="onSubmit(custFormRef.value)"
+      #custFormRef="ngForm"
+      class="full-width"
+      [formGroup]="customerFormGroup"
+      id="customerForm">
+
+  <section [formGroup]="name">
+    <mat-form-field appearance="standard">
+      <mat-label>first</mat-label>
+      <input required matInput name="customerForm" placeholder="first" formControlName="first">
+      <mat-error *ngIf="name.get('first').hasError('required')">
+        field is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>last</mat-label>
+      <input required matInput name="customerForm" placeholder="last" formControlName="last">
+      <mat-error *ngIf="name.get('last').hasError('required')">
+        This field is required
+      </mat-error>
+    </mat-form-field>
+  </section>
+
+  <section>
+    <mat-form-field appearance="standard">
+      <mat-label>lastContact</mat-label>
+      <input [matDatepicker]="pickerLife" required matInput name="lastContact"
+             placeholder="lastContact" formControlName="lastContact">
+      <mat-datepicker-toggle matSuffix [for]="pickerLife"></mat-datepicker-toggle>
+      <mat-datepicker #pickerLife></mat-datepicker>
+      <mat-error *ngIf="customerFormGroup.get('lastContact').hasError('required')">
+        This field is required
+      </mat-error>
+    </mat-form-field>
+  </section>
+
+  <section>
+    <mat-form-field appearance="standard">
+      <mat-label>birthday</mat-label>
+      <input [matDatepicker]="picker" required matInput name="birthday" placeholder="birthday" formControlName="birthday">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="customerFormGroup.get('birthday').hasError('required')">
+        This field is required
+      </mat-error>
+    </mat-form-field>
+  </section>
+
+  <section>
+    <mat-form-field appearance="standard">
+      <mat-label>CustomerLifetimeValue</mat-label>
+      <input type="number" required matInput name="customerLifetimeValue" placeholder="customerLifetimeValue" formControlName="customerLifetimeValue">
+      <mat-error *ngIf="customerFormGroup.get('customerLifetimeValue').hasError('required')">
+        This field is required
+      </mat-error>
+    </mat-form-field>
+  </section>
+
+  <section>
+    <mat-select formControlName="gender"
+                placeholder="Please Select your Gender"
+                name="gender">
+      <mat-option [value]="'m'">Masculine </mat-option>
+      <mat-option [value]="'w'">Feminine </mat-option>
+    </mat-select>
+    <mat-error *ngIf="customerFormGroup.get('gender').hasError('required')">
+      This field is required
+    </mat-error>
+  </section>
+  <br>
+  <button mat-button color="primary" id="submit-button" [disabled]="!customerFormGroup.valid">Submit</button>
+</form>
